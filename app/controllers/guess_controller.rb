@@ -1,5 +1,19 @@
 class GuessController < ApplicationController
   def wild
-    render 'wild'
+    @num_1 = params[:first_number].to_i
+    @num_2 = params[:second_number].to_i
+    @num_3 = params[:third_number].to_i
+    if (@num_1 < @num_2) && (@num_2 < @num_3)
+      @wild = "yes"
+    elsif (@num_1 >= @num_2)
+
+      @wild = "no"
+    elsif (@num_2 >= @num_3)
+      @wild = "no"
+
+    end
+
+    render ("wild.html.erb")
   end
-end 
+
+end
